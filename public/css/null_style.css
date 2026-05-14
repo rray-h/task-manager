@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  font-size: 100%;
+  font: inherit;
+  text-decoration: none;
+  box-sizing: border-box; /* Удобная модель расчёта ширины/высоты */
+}
+
+/* Убираем маркеры у списков */
+ol, ul {
+  list-style: none;
+}
+
+/* Нормализуем ссылки */
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
