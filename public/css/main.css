@@ -1,7 +1,17 @@
+
+
 .task__form input[type="text"]{
     border: 1px solid #000;
 }
 
 .task__form input[type="radio"]{
     margin: 0 1vw 0 0;
+}
+
+.task_output{
+    height: 10vh;
+}
+
+input.red__outline{
+    border: 1px solid red !important;
 }

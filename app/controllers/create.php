@@ -11,16 +11,17 @@ if($test->check()){
     $task_title = htmlspecialchars($_POST["task_title"]);
     $task_describe = htmlspecialchars($_POST["task_describe"]);
     $task_priority = htmlspecialchars($_POST["task_priority"]);
+    $_SESSION["task_data"] = ["title"=>$task_title, "describe"=>$task_describe];
     $errors = [];
 
     if(trim($task_title) === ""){
-        $errors[] = "Тема не заполнена";
+        $errors['title'] = "Тема не заполнена";
     }
     if(trim($task_describe) === ""){
-        $errors[] = "Описание не заполнено";
+        $errors['describe'] = "Описание не заполнено";
     }
     if(trim($task_priority) === ""){
-        $errors[] = "Не выбран приоритет";
+        $errors['priority'] = "Не выбран приоритет";
     }
 
 

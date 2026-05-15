@@ -1,8 +1,10 @@
-<?php include "../app/views/header.php" ?>
+<?php include "views/header.php" ?>
 <?php 
 session_start();
 $errors = $_SESSION["errors"];
+$task_data = $_SESSION["task_data"];
 unset($_SESSION["errors"]);
+unset($_SESSION["task_data"]);
 ?>
 
 <div class="main">
@@ -12,11 +14,17 @@ unset($_SESSION["errors"]);
             <form action="../app/controllers/create.php" method="POST">
                 <label>
                     <p>Тема задачи: </p>
-                    <input type="text" name="task_title" />
+                    <?php 
+                        if(!isset($errors['title'])) echo "<input type='text' name='task_title' value='" . $task_data["title"] . "' />";
+                        else echo "<input class='red__outline' type='text' name='task_title' value='" . $task_data["title"] . "' />" . " " . $errors["title"];
+                    ?>
                 </label>
                 <label>
                     <p>Описание задачи: </p>
-                    <input type="text" name="task_describe" />
+                    <?php 
+                        if(!isset($errors['describe'])) echo "<input type='text' name='task_describe' value='" . $task_data["describe"] . "' />";
+                        else echo "<input class='red__outline' type='text' name='task_describe' value='" . $task_data["describe"] . "' />" . " " . $errors["describe"];
+                    ?>                
                 </label>
                 <ul>
                     <p>Приоритет задачи: </p>
@@ -27,17 +35,8 @@ unset($_SESSION["errors"]);
                 <input type="submit" values="Отправить" />
             </form>
         </div>
-        <div class="task_output">
-            <?php
-            
-                
-                foreach($errors as $error)
-                    echo "<p>$error</p>";
-
-            ?>
-        </div>
     </div>
 
 </div>
 
-<?php include "../app/views/footer.php" ?>
+<?php include "views/footer.php" ?>
