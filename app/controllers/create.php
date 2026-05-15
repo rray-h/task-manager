@@ -3,10 +3,10 @@ session_start();
 
 require_once("../models/connection.php");
 
-$test = new Database;
+$obj_db = new Database;
 
-if($test->check()){
-    $conn = $test->getPDO($conn);
+if($obj_db->check()){
+    $conn = $obj_db->getPDO($conn);
 
     $task_title = htmlspecialchars($_POST["task_title"]);
     $task_describe = htmlspecialchars($_POST["task_describe"]);

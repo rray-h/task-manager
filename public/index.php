@@ -1,10 +1,10 @@
 <?php include "views/header.php" ?>
 <?php 
-session_start();
-$errors = $_SESSION["errors"];
-$task_data = $_SESSION["task_data"];
-unset($_SESSION["errors"]);
-unset($_SESSION["task_data"]);
+    session_start();
+    $errors = $_SESSION["errors"];
+    $task_data = $_SESSION["task_data"];
+    unset($_SESSION["errors"]);
+    unset($_SESSION["task_data"]);
 ?>
 
 <div class="main">
