@@ -32,7 +32,7 @@
                     <li><label><input type="radio" name="task_priority" value="Средний">Средний</label></li>
                     <li><label><input type="radio" name="task_priority" value="Высокий">Высокий</label></li>
                 </ul>
-                <input type="submit" values="Отправить" />
+                <button type="submit">Отправить</button>
             </form>
         </div>
     </div>

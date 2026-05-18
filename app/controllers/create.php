@@ -6,7 +6,7 @@ require_once("../models/connection.php");
 $obj_db = new Database;
 
 if($obj_db->check()){
-    $conn = $obj_db->getPDO($conn);
+    $conn = $obj_db->getPDO();
 
     $task_title = htmlspecialchars($_POST["task_title"]);
     $task_describe = htmlspecialchars($_POST["task_describe"]);

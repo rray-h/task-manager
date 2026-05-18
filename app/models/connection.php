@@ -31,8 +31,8 @@ class Database
         }
     }
 
-    public function getPDO($conn): PDO {
-        return $conn = $this->pdo;
+    public function getPDO(): PDO {
+        return $this->pdo;
     }
 
 }

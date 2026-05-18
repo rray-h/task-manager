@@ -1,7 +1,7 @@
 <?php 
     include "views/header.php";
-    session_start();
     $task_list = $_SESSION["task_list"];
+    unset($_SESSION["task_list"]);
 ?>
 
 <div class="list">
@@ -18,7 +18,7 @@
         ?>
         <tbody>
             <?php foreach ($task_list as $tasks): ?>
-                <tr onclick="window.location='view_task.php?id=<?php echo $tasks['id']; ?>'" style="cursor: pointer;">
+                <tr onclick="window.location='task.php?id=<?php echo $tasks['id']; ?>'" style="cursor: pointer;">
                     <td><?php echo htmlspecialchars($tasks['id']); ?></td>
                     <td><?php echo htmlspecialchars($tasks['task_title']); ?></td>
                     <td><?php echo htmlspecialchars($tasks['task_describe']); ?></td>
