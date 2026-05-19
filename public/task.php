@@ -1,9 +1,13 @@
 <?php 
 include "views/header.php";
-include "../app/models/connection.php";
+require_once "../app/models/connection.php";
+
+session_start();
 
 $obj_db = new Database;
 $task_id = isset($_GET["id"]) && !empty($_GET["id"]) ? $_GET["id"] : 0;
+$errors = $_SESSION["errors"];
+$_SESSION["task_id"] = $task_id;
 
 
 if($obj_db->check()){
@@ -16,15 +20,15 @@ if($obj_db->check()){
 }
 ?>
 
-
-
 <div class="main">
     <div class="task">
         <div class="task__form">
             <form action="../app/controllers/edit.php" method="POST">
                 <label>
                     <p>Тема задачи:</p> 
-                    <?php echo "<input type='text' name='task_title' value='" . $task_id_data[0]["task_title"] . "' />" ?>
+                    <?php 
+                        echo "<input type='text' name='task_title' value='" . $task_id_data[0]["task_title"] . "' />" 
+                    ?>
                 </label>
                 <label>
                     <p>Описание задачи:</p> 
@@ -64,7 +68,8 @@ if($obj_db->check()){
                         }
                     ?>
                 </ul>
-                <button type="submit">Изменить</button>
+                <input type="submit" name="edit" value="Изменить" />
+                <input type="submit" name="edit" value="Удалить" />
             </form>
         </div>
     </div>
