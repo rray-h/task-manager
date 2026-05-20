@@ -30,12 +30,12 @@ else{
 
 <div class="main">
     <div class="task__list">
+        <form method="POST">
+            Сортировать по 
+            <input type="submit" name="sort" value="Алфавиту">
+        </form>
         <div class="list">
-            <form method="POST">
-                Сортировать по 
-                <input type="submit" name="sort" value="Алфавиту">
-            </form>
-            <table border='1' cellpadding='5'>
+            <table>
                 <thead>
                     <tr>
                     <th> Задача </th>
@@ -43,7 +43,7 @@ else{
                     <th> Описание задачи </th>
                     <th> Приоритет задачи </th>
                     </tr>
-            </thead>
+                </thead>
                 <tbody>
                 <?php foreach ($task_list as $tasks): ?>
                     <tr onclick="window.location='task.php?id=<?php echo $tasks['id']; ?>'" style="cursor: pointer;">
