@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class"header"">
+    <div class="header">
 
         <div class="header__links">
             <a href="index.php">Создание задач</a>

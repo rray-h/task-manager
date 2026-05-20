@@ -1,17 +1,64 @@
+.main{
+    padding: 0 10px 0 10px;
+}
 
+.task__form p{
+    margin: 10px 10px 10px 0;
+}
 
-.task__form input[type="text"]{
+.task__form input[type="text"], textarea{
+    font-size: 15px;
+    padding: 5px;
     border: 1px solid #000;
+    border-radius: 5px;
+    width: 30vw;
+
+    &:focus{
+        border-color: #999696;
+    }
+
+    &.red__outline{
+        border: 1px solid red !important;
+    }
+}
+
+.task__form textarea{
+    height: 20vh;
 }
 
 .task__form input[type="radio"]{
-    margin: 0 1vw 0 0;
+    accent-color: #000;
+    margin: 5px 10px 5px 0;
 }
 
-.task_output{
-    height: 10vh;
+.task__form ul li{
+    width: 30vw;
+
+    &:hover{
+        background-color: #00000011;
+    }
 }
 
-input.red__outline{
-    border: 1px solid red !important;
+.task__form input[type="submit"]{
+    width: 10vw;
+    padding: 10px 15px 10px 15px;
+    margin: 10px 0 0 0;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background-color: #363535;
+    color: #fff;
+    box-shadow: 0 2px 2px #000;
+    transition: all 0.2s ease;
+
+    &:hover{
+        border: 1px solid #363535;
+        background-color: #fff;
+        color: #363535;
+    }
+
+    &:active{
+        box-shadow: none;
+        transform: translateY(2px);
+    }
 }
+

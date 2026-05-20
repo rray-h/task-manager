@@ -1,8 +1,9 @@
-<?php include "views/header.php" ?>
 <?php 
     session_start();
-    $errors = $_SESSION["errors"];
-    $task_data = $_SESSION["task_data"];
+    include "views/header.php";
+
+    $errors = $_SESSION["errors"] ?? [];
+    $task_data = $_SESSION["task_data"] ?? [];
     unset($_SESSION["errors"]);
     unset($_SESSION["task_data"]);
 ?>
@@ -14,25 +15,27 @@
             <form action="../app/controllers/create.php" method="POST">
                 <label>
                     <p>Тема задачи: </p>
-                    <?php 
-                        if(!isset($errors['title'])) echo "<input type='text' name='task_title' value='" . $task_data["title"] . "' />";
-                        else echo "<input class='red__outline' type='text' name='task_title' value='" . $task_data["title"] . "' />" . " " . $errors["title"];
-                    ?>
+                    <?php if(!isset($errors['title']) && empty($errors['title'])): ?>
+                        <input type='text' name='task_title' value="<?= $task_data["title"] ?>" />
+                    <?php else: ?>
+                        <input class='red__outline' type='text' name='task_title' value="<?= $task_data["title"]; ?>" /> <?= $errors["title"]; ?>
+                    <?php endif; ?>
                 </label>
                 <label>
                     <p>Описание задачи: </p>
-                    <?php 
-                        if(!isset($errors['describe'])) echo "<input type='text' name='task_describe' value='" . $task_data["describe"] . "' />";
-                        else echo "<input class='red__outline' type='text' name='task_describe' value='" . $task_data["describe"] . "' />" . " " . $errors["describe"];
-                    ?>                
+                    <?php if(!isset($errors['describe']) && empty($errors['describe'])): ?>
+                        <textarea name="task_describe" border=1><?= $task_data["describe"] ?></textarea>
+                    <?php else: ?>
+                        <textarea name="task_describe" class="red__outline" border=1><?= $task_data["describe"] ?></textarea> <?= $errors["describe"]; ?>
+                    <?php endif; ?>
                 </label>
                 <ul>
                     <p>Приоритет задачи: </p>
-                    <li><label><input type="radio" name="task_priority" value="Низкий" checked />Низкий</label></li>
-                    <li><label><input type="radio" name="task_priority" value="Средний">Средний</label></li>
-                    <li><label><input type="radio" name="task_priority" value="Высокий">Высокий</label></li>
+                    <label><li><input type="radio" name="task_priority" value="Низкий" checked />Низкий</li></label>
+                    <label><li><input type="radio" name="task_priority" value="Средний">Средний</li></label>
+                    <label><li><input type="radio" name="task_priority" value="Высокий">Высокий</li></label>
                 </ul>
-                <button type="submit">Отправить</button>
+                <input type="submit" value="Отправить" />
             </form>
         </div>
     </div>
